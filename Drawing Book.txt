@@ -8,12 +8,12 @@ public class Solution {
 
     static int solve(int n, int p){
         int forward=0,sum=0;             //forward will contain the number of pages turned when moving from front
-        if(p%2==0)           //if p is even.We need to turn p/2 pages to reach the final page 'p' starting from front(pg 1)
+        if(p%2==0)                       //if p is even.We need to turn p/2 pages to reach the final page 'p' starting from front(pg 1)
             forward=p/2;
         else
-            forward=(p-1)/2;    //if p is odd.We need to turn (p-1)/2 pages to reach the final page 'p' starting from front(pg 1)
+            forward=(p-1)/2;            //if p is odd.We need to turn (p-1)/2 pages to reach the final page 'p' starting from front(pg 1)
         /*MAIN LOGIC
-        sum of pages to be turned from front and pages to be turned from back must be equal to (n-1)/2 if n is odd otherwise it           must be equal to n/2.
+        sum of pages to be turned from front and pages to be turned from back must be equal to (n-1)/2 if n is odd otherwise it                   must be equal to n/2.
         So I find the minimum amongst (forward and sum-forward) and print that result.
         MAKE THE COMPUTATIONS FROM BACK AND YOU CAN VERIFY THE RESULTS.
         */
