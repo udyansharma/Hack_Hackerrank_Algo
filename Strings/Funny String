@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String funnyString(String s){
+        // Complete this function
+        StringBuffer s1=new StringBuffer(s);              //Converting String class obj. s to StringBuffer class obj. s1
+        StringBuffer s2=new StringBuffer(s1.toString()); //**MAIN LOGIC We used StringBuffer because it has a lib. func for reverse**
+        s2.reverse();
+        int i=1;
+        boolean flag=true;
+        while(i!=s1.length()){
+            int a=Math.abs((int)s1.charAt(i)-(int)s1.charAt(i-1)),b=Math.abs((int)s2.charAt(i)-(int)s2.charAt(i-1));
+            if(a!=b){
+                flag=false;
+                break;
+            }
+            i++;
+        }
+        if(flag==true)
+            return "Funny";
+        return "Not Funny";
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            String s = in.next();
+            String result = funnyString(s);
+            System.out.println(result);
+        }
+    }
+}
